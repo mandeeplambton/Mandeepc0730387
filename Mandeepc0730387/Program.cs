@@ -11,19 +11,22 @@ namespace Mandeepc0730387
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Mandeep kaur rules the IT universe"); Download();
+            Console.WriteLine("Mandeep Kaur Rules the IT Universe!");
+            Download();
+            Console.ReadLine();
         }
 
-        static void Download()
+        static async void Download()
         {
-            Task.Run(() =>
+           await Network.Download();
+            Console.WriteLine("Download completed");
+        }
+        class Network
+        {
+            static public Task Download()
             {
-                Thread.Sleep(3000);
-                Console.WriteLine("Download Complete");
+                return Task.Run(() => Thread.Sleep(3000));
             }
-            );
-
-
         }
     }
 }
